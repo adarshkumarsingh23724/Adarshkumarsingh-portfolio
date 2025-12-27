@@ -1,8 +1,234 @@
-import { useMemo, useRef, useState, useEffect } from "react"
-import img1 from "../assets/img1.webp"
-import img2 from "../assets/img2.jpg"
-import img3 from "../assets/img3.png"
-import { motion,AnimatePresence,useMotionValueEvent, useScroll } from "framer-motion"
+// import { useMemo, useRef, useState, useEffect } from "react";
+// import img2 from "../assets/img2.png";
+// import img3 from "../assets/img3.webp";
+// import img1 from "../assets/img1.png";
+// import img4 from "../assets/img4.png";
+// import img5 from "../assets/img5.png";
+// import demoVideo from "../assets/vid1.mp4";
+
+// import {
+//   motion,
+//   AnimatePresence,
+//   useMotionValueEvent,
+//   useScroll,
+// } from "framer-motion";
+
+// const useIsMobile = (query = "(max-width: 639px)") => {
+//   const [isMobile, setIsMobile] = useState(
+//     typeof window !== "undefined" && window.matchMedia(query).matches
+//   );
+
+//   useEffect(() => {
+//     if (typeof window === "undefined") return;
+//     const mql = window.matchMedia(query);
+//     const handler = (e) => setIsMobile(e.matches);
+
+//     mql.addEventListener("change", handler);
+//     setIsMobile(mql.matches);
+//     return () => mql.removeEventListener("change", handler);
+//   }, [query]);
+
+//   return isMobile;
+// };
+
+// export default function Projects() {
+//   const isMobile = useIsMobile();
+//   const sceneRef = useRef(null);
+
+//   const projects = useMemo(
+//     () => [
+//       {
+//         title: "Rock vs Mine",
+//         link: "https://rock-vs-mine-production.up.railway.app/",
+//         bgColor: "#002b36",
+//         video: demoVideo,
+//       },
+//       {
+//         title: "Portfolio using HTML And CSS",
+//         link: "https://resume-118sp9czq-adarshkumar963s-projects.vercel.app/",
+//         bgColor: "#123456",
+//         image: img1,
+//       },
+//       {
+//         title: "Club Website",
+//         link: "https://github.com/adarshkumarsingh23724/college_club.git",
+//         bgColor: "#1c2e4a",
+//         image: img2,
+//       },
+//       {
+//         title: "Labour Connect Worklink",
+//         link: "https://github.com/adarshkumarsingh23724/labour.git",
+//         bgColor: "#D3B69C",
+//         image: img3,
+//       },
+//       {
+//         title: "California House Prediction",
+//         link: "https://californiahousepricing-jef6.onrender.com/",
+//         bgColor: "#00bfff",
+//         image: img4,
+//       },
+//       {
+//         title: "Red Wine Quality Prediction",
+//         link: "https://web-production-0a5ee.up.railway.app/",
+//         bgColor: "#06402b",
+//         image: img5,
+//       },
+//     ],
+//     [isMobile]
+//   );
+
+//   const { scrollYProgress } = useScroll({
+//     target: sceneRef,
+//     offset: ["start start", "end end"],
+//   });
+
+//   const thresholds = projects.map((_, i) => (i + 1) / projects.length);
+//   const [activeIndex, setActiveIndex] = useState(0);
+
+//   useMotionValueEvent(scrollYProgress, "change", (v) => {
+//     const idx = thresholds.findIndex((t) => v <= t);
+//     setActiveIndex(idx === -1 ? thresholds.length - 1 : idx);
+//   });
+
+//   const activeProject = projects[activeIndex];
+
+//   return (
+//     <section
+//       id="projects"
+//       ref={sceneRef}
+//       className="relative text-white"
+//       style={{
+//         height: `${100 * projects.length}vh`,
+//         backgroundColor: activeProject.bgColor,
+//         transition: "background-color 400ms ease",
+//       }}
+//     >
+//       <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
+//         <h2
+//           className={`text-3xl font-semibold z-10 text-center ${
+//             isMobile ? "mt-4" : "mt-8"
+//           }`}
+//         >
+//           My Work
+//         </h2>
+//         <div
+//           className={`relative w-full flex-1 flex items-center justify-center ${
+//             isMobile ? "-mt-4" : ""
+//           }`}
+//         >
+//           {projects.map((project, idx) => (
+//             <div
+//               key={project.title}
+//               className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${
+//                 activeIndex === idx
+//                   ? "opacity-100 z-20"
+//                   : "opacity-0 z-0 sm:z-10"
+//               } `}
+//               style={{ width: "85%", maxWidth: "1200px" }}
+//             >
+//               <AnimatePresence mode="wait">
+//                 {activeIndex === idx && (
+//                   <motion.h3
+//                     key={project.title}
+//                     initial={{ opacity: 0, y: -30 }}
+//                     animate={{ opacity: 1, y: 0 }}
+//                     exit={{ opacity: 0, y: 30 }}
+//                     transition={{ duration: 0.5, ease: "easeOut" }}
+//                     className={`block text-center text-[clamp(2rem,6vw,5rem)] text-white/95 sm:absolute sm:-top-20 sm:left-[35%] lg:left-[-5%] sm:mb-0 italic font-semibold ${
+//                       isMobile ? "-mt-24" : ""
+//                     }`}
+//                     style={{
+//                       zIndex: 5,
+//                       textAlign: isMobile ? "center" : "left",
+//                     }}
+//                   >
+//                     {project.title}
+//                   </motion.h3>
+//                 )}
+//               </AnimatePresence>
+//               <div
+//                 className={`relative w-full overflow-hidden bg-black/20 shadow-2xl md:shadow-[0-35px-60px_-15px_rgba(0,0,0,0.7) ${
+//                   isMobile ? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"
+//                 } h-[62vh] sm:h-[66vh]`}
+//                 style={{ zIndex: 10, transition: "box-shadow 250ms ease" }}
+//               >
+//                 {project.video ? (
+//                   <video
+//                     src={project.video}
+//                     autoPlay
+//                     loop
+//                     muted
+//                     playsInline
+//                     className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl"
+//                     style={{
+//                       position: "relative",
+//                       zIndex: 10,
+//                       filter: "drop-shadow(0,16px 40px rgba(0,0,0,0.65))",
+//                       transition: "filter 200ms ease",
+//                     }}
+//                   />
+//                 ) : (
+//                   <img
+//                     src={project.image}
+//                     alt={project.title}
+//                     className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl"
+//                     style={{
+//                       position: "relative",
+//                       zIndex: 10,
+//                       filter: "drop-shadow(0,16px 40px rgba(0,0,0,0.65))",
+//                       transition: "filter 200ms ease",
+//                     }}
+//                     loading="lazy"
+//                   />
+//                 )}
+//                 <div
+//                   className="pointer-events-none absolute inset-0"
+//                   style={{
+//                     zIndex: 11,
+//                     background:
+//                       "linear-gradient(180deg,rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 40%)",
+//                   }}
+//                 ></div>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//         <div className={`absolute ${isMobile ? "bottom-20" : "bottom-10"}`}>
+//           <a
+//             href={activeProject?.link}
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             className="inline-block px-6 py-3 font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-all"
+//             aria-label={`View ${activeProject?.title}`}
+//           >
+//             View Project
+//           </a>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
+
+import { useMemo, useRef, useState, useEffect } from "react";
+import img2 from "../assets/img2.png";
+import img2Mobile from "../assets/img2Mobile.png";
+import img3 from "../assets/img3.webp";
+import img3Mobile from "../assets/img3Mobile.png";
+import img1 from "../assets/img1.png";
+import img1Mobile from "../assets/img1Mobille.png";
+import img4 from "../assets/img4.png";
+import img4Mobile from "../assets/img4Mobile.png";
+import img5 from "../assets/img5.png";
+import img5Mobile from "../assets/img5Mobile.png";
+import demoVideo from "../assets/vid1.mp4";
+import demoVideoMobile from "../assets/demoVideoMobile.mp4";
+
+import {
+  motion,
+  AnimatePresence,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
 
 const useIsMobile = (query = "(max-width: 639px)") => {
   const [isMobile, setIsMobile] = useState(
@@ -29,24 +255,47 @@ export default function Projects() {
   const projects = useMemo(
     () => [
       {
-        title: "Labour Connect Worklink",
-        link: "https://github.com/adarshkumarsingh23724/labour.git",
-        bgColor: "#000000",
-        image: img1,
+        title: "Rock vs Mine",
+        link: "https://rock-vs-mine-production.up.railway.app/",
+        bgColor: "#002b36",
+        video: demoVideo,
+        mobileVideo: demoVideoMobile,
       },
       {
-        title: "Red Wine Quality Prediction",
-        link: "https://github.com/adarshkumarsingh23724/red-wine-quaility-prediction.git",
-        bgColor: "#ff2c2c",
+        title: "Portfolio using HTML And CSS",
+        link: "https://resume-118sp9czq-adarshkumar963s-projects.vercel.app/",
+        bgColor: "#123456",
+        image: img1,
+        mobileImage: img1Mobile,
+      },
+      {
+        title: "Club Website",
+        link: "https://github.com/adarshkumarsingh23724/college_club.git",
+        bgColor: "#1c2e4a",
         image: img2,
+        mobileImage: img2Mobile,
+      },
+      {
+        title: "Labour Connect Worklink",
+        link: "https://github.com/adarshkumarsingh23724/labour.git",
+        bgColor: "#D3B69C",
+        image: img3,
+        mobileImage: img3Mobile,
       },
       {
         title: "California House Prediction",
-        link: "https://github.com/adarshkumarsingh23724/californiahousepricing.git",
-        bgColor: "#276221",
-        image: img3,
+        link: "https://californiahousepricing-jef6.onrender.com/",
+        bgColor: "#00bfff",
+        image: img4,
+        mobileImage: img4Mobile,
       },
-      
+      {
+        title: "Red Wine Quality Prediction",
+        link: "https://web-production-0a5ee.up.railway.app/",
+        bgColor: "#06402b",
+        image: img5,
+        mobileImage: img5Mobile,
+      },
     ],
     [isMobile]
   );
@@ -78,94 +327,114 @@ export default function Projects() {
       }}
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center">
-        <h2 className={`text-3xl font-semibold z-10 text-center ${
-          isMobile ? "mt-4" : "mt-8"
-          }`}>
+        <h2
+          className={`text-3xl font-semibold z-10 text-center ${
+            isMobile ? "mt-4" : "mt-8"
+          }`}
+        >
           My Work
-          </h2>
-          <div className={`relative w-full flex-1 flex items-center justify-center ${
+        </h2>
+        <div
+          className={`relative w-full flex-1 flex items-center justify-center ${
             isMobile ? "-mt-4" : ""
-          }`}>
-            {projects.map((project,idx) => (
-              <div key={project.title}
+          }`}
+        >
+          {projects.map((project, idx) => (
+            <div
+              key={project.title}
               className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${
-                activeIndex ===idx ? "opacity-100 z-20" : "opacity-0 z-0 sm:z-10"
+                activeIndex === idx
+                  ? "opacity-100 z-20"
+                  : "opacity-0 z-0 sm:z-10"
               } `}
-              style={{width: "85%" , maxWidth: "1200px"}}
-              >
-                <AnimatePresence  mode="wait">
-                  {activeIndex === idx && (
-                    <motion.h3 key={project.title}
-                    initial = {{opacity : 0,y:-30}}
-                  animate={{opacity: 1,y: 0}}
-                  exit={{opacity: 0, y:30}}
-                  transition={{duration: 0.5 , ease: "easeOut"}}
-                  className={`block text-center text-[clamp(2rem,6vw,5rem)] text-white/95 sm:absolute sm:-top-20 sm:left-[35%] lg:left-[-5%] sm:mb-0
-                    italic font-semibold ${
-                      isMobile? "-mt-24" : ""
-                    }
-                    `}
+              style={{ width: "85%", maxWidth: "1200px" }}
+            >
+              <AnimatePresence mode="wait">
+                {activeIndex === idx && (
+                  <motion.h3
+                    key={project.title}
+                    initial={{ opacity: 0, y: -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 30 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className={`block text-center text-[clamp(2rem,6vw,5rem)] text-white/95 sm:absolute sm:-top-20 sm:left-[35%] lg:left-[-5%] sm:mb-0 italic font-semibold ${
+                      isMobile ? "-mt-24" : ""
+                    }`}
                     style={{
-                      xIndex:5,
-                      textAlign: isMobile? "center" : "left",
+                      zIndex: 5,
+                      textAlign: isMobile ? "center" : "left",
                     }}
-                    
-                    
-                    >
-                     {project.title}
-                    </motion.h3>
-                  )}
-                
-
-
-                </AnimatePresence>
-                <div className={`relative w-full overflow-hidden bg-black/20 shadow-2xl
-                  md:shadow-[0-35px-60px_-15px_rgba(0,0,0,0.7) ${
-                    isMobile ?  "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"
-                  }
-                  h-[62vh] sm:h-[66vh]
-                  `}
-                  style={{zIndex:10 , transition: "box-shadow 250ms ease"}}
-                  
                   >
-                  <img src={project.image} alt={project.title}
-                  className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl"
-                  style={{
-                    position: "relative",
-                    zIndex:10,
-                    filter: "drop-shadow(0,16px 40px rgba(0,0,0,0.65)",
-                    transition: "filter 200ms ease",
-                  }}
-                  loading="lazy"
+                    {project.title}
+                  </motion.h3>
+                )}
+              </AnimatePresence>
+              <div
+                className={`relative w-full overflow-hidden bg-black/20 shadow-2xl md:shadow-[0-35px-60px_-15px_rgba(0,0,0,0.7) ${
+                  isMobile ? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"
+                } h-[62vh] sm:h-[66vh]`}
+                style={{ zIndex: 10, transition: "box-shadow 250ms ease" }}
+              >
+                {project.video ? (
+                  <video
+                    src={
+                      isMobile && project.mobileVideo
+                        ? project.mobileVideo
+                        : project.video
+                    }
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl"
+                    style={{
+                      position: "relative",
+                      zIndex: 10,
+                      filter: "drop-shadow(0,16px 40px rgba(0,0,0,0.65))",
+                      transition: "filter 200ms ease",
+                    }}
                   />
-                  <div className="pointer-events-none absolute inset-0"
+                ) : (
+                  <img
+                    src={
+                      isMobile && project.mobileImage
+                        ? project.mobileImage
+                        : project.image
+                    }
+                    alt={project.title}
+                    className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl"
+                    style={{
+                      position: "relative",
+                      zIndex: 10,
+                      filter: "drop-shadow(0,16px 40px rgba(0,0,0,0.65))",
+                      transition: "filter 200ms ease",
+                    }}
+                    loading="lazy"
+                  />
+                )}
+                <div
+                  className="pointer-events-none absolute inset-0"
                   style={{
                     zIndex: 11,
-                    background: "linear-gradient(180deg,rgba(0,0,0,12) 0%, rgba(0,0,0,0) 40%)"
+                    background:
+                      "linear-gradient(180deg,rgba(0,0,0,0.12) 0%, rgba(0,0,0,0) 40%)",
                   }}
-                  
-                  
-                  
-                  >
-
-                  </div>
-                  
-
-
+                ></div>
+              </div>
             </div>
-            </div>
-           ))}
-          </div>
-          <div className={`absolute ${
-            isMobile ? "bottom-20" : "bottom-10"
-          }`}>
-            <a href={activeProject?.link}
+          ))}
+        </div>
+        <div className={`absolute ${isMobile ? "bottom-20" : "bottom-10"}`}>
+          <a
+            href={activeProject?.link}
             target="_blank"
-            rel="notopener noreferrer"
+            rel="noopener noreferrer"
             className="inline-block px-6 py-3 font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-all"
             aria-label={`View ${activeProject?.title}`}
-            >View Project</a>
-          </div>
+          >
+            View Project
+          </a>
+        </div>
       </div>
     </section>
   );

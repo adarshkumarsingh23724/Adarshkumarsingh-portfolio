@@ -99,12 +99,12 @@ export default function Skills() {
       className="h-1/2 w-full pb-8 flex flex-col items-center justify-center relative bg-black text-white overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-20 blur-[120px] animate-pulse" />
-        <div className="absolute top-1/4 right-0 w-[300px] h-[300px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 opacity-20 blur-[120px] animate-pulse delay-500" />
+        <div className="absolute top-1/4 left-0 w-[300px] h-[300px] rounded-full    bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500 opacity-20 blur-[120px] animate-pulse" />
+        <div className="absolute top-1/4 right-0 w-[300px] h-[300px] rounded-full    bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500 opacity-20 blur-[120px] animate-pulse delay-500" />
       </div>
 
       <motion.h2
-        className="text-4xl mt-5 sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 z-10"
+        className="text-4xl mt-5 sm:text-5xl font-bold bg-clip-text text-transparent    bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500 z-10"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -124,7 +124,7 @@ export default function Skills() {
       <div className="relative w-full overflow-hidden">
         <motion.div
           ref={trackRef}
-          className="flex gap-10 text-6xl text-pink-500"
+          className="flex gap-10 text-6xl text-cyan-500"
           style={{ x, whiteSpace: "nowrap", willChange: "transform" }}
         >
           {repeated.map((s, i) => (

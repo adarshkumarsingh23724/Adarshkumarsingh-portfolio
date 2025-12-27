@@ -17,7 +17,7 @@ export default function About() {
         {glows.map((c, i) => (
           <div
             key={i}
-            className={`absolute rounded-full bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-pulse ${c}`}
+            className={`absolute rounded-full   bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500 animate-pulse ${c}`}
           />
         ))}
       </div>
@@ -31,8 +31,13 @@ export default function About() {
           viewport={{ once: true, amount: 0.4 }}
         >
           <motion.div
+            // className="relative w-[160px] h-[160px] md:w-[400px] md:h-[400px]  
+            // rounded-full overflow-hidden shadow-2xl bg-gradient-to-tr from-[#1cd8d2] to-[#302b63]/20 border border-pink-500"
             className="relative w-[160px] h-[160px] md:w-[400px] md:h-[400px]  
-            rounded-full overflow-hidden shadow-2xl bg-gradient-to-tr from-[#1cd8d2] to-[#302b63]/20 border border-pink-500"
+  rounded-full overflow-hidden shadow-2xl bg-gradient-to-tr from-[#1cd8d2] to-[#302b63]/60 
+  border border-cyan-500 ring-4 ring-cyan-400/40"
+
+
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
           >
@@ -44,11 +49,11 @@ export default function About() {
           <div className="flex flex-1 flex-col justify-center text-center md:text-left">
             <h2
               className="text-4xl sm:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent
-              bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+                bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500"
             >
-              Adarsh Kumar Singh
+              Adarsh K' Singh
             </h2>
-            <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">UI/UX Designer</p>
+            <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">MERN STACK ENTHUSIAST</p>
             <p className="mt-4 text-gray-300 leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl text-justify">
            I am an IT student passionate about technology and innovation.  
 My journey blends intelligent systems with modern web development, where I enjoy solving real challenges.  

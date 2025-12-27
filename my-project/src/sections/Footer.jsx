@@ -44,7 +44,7 @@ export default function Footer() {
             textShadow: "0 2px 18px rgba(0,0,0,0.45)",
           }}
         >
-          Adarsh Kumar
+          Adarsh K' Singh
         </h1>
 
         {/* Gradient divider */}

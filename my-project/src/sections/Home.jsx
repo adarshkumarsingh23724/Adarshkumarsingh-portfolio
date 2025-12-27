@@ -3,7 +3,7 @@ import ParticlesBackground from "../components/ParticlesBackground";
 import { motion } from "framer-motion";
 import React from "react";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
-import avator from "../assets/avator.png";
+import avator from "../assets/a.jpg";
 
 const socials = [
   { Icon: FaGithub, label: "GitHub", link: "https://github.com/adarshkumarsingh23724" },
@@ -27,7 +27,7 @@ const glowVariants = {
 };
 
 export default function Home() {
-  const roles = useMemo(() => ["UI/UX Designer", "Treasurer"], []);
+  const roles = useMemo(() => ["MERN STACK ENTHUSIAST", "AI/ML ENTHUSIAST","UI/UX DESIGNER"], []);
   const [index, setIndex] = React.useState(0);
   const [subIndex, setSubIndex] = React.useState(0);
   const [deleting, setDeleting] = React.useState(false);
@@ -54,15 +54,25 @@ export default function Home() {
     <section id="home" className="w-full h-screen relative bg-black overflow-hidden">
       <ParticlesBackground />
       <div className="absolute inset-0">
-        <div
+        {/* <div
           className="absolute -top-32 -left-32
             w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
             bg-gradient-to-r from-purple-400 via-pink-500 to-red-500
             opacity-30 sm:opacity-20 md:opacity-10
             blur-[100px] sm:blur-[130px] md:blur-[150px]
             animate-pulse"
-        ></div>
+        ></div> */}
         <div
+  className="absolute -top-32 -left-32
+    w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
+    bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500
+
+    opacity-30 sm:opacity-20 md:opacity-10
+    blur-[100px] sm:blur-[130px] md:blur-[150px]
+    animate-pulse"
+></div>
+
+        {/* <div
           className="absolute bottom-0 right-0
             w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
             bg-gradient-to-r from-purple-400 via-pink-500 to-red-500
@@ -70,6 +80,15 @@ export default function Home() {
             blur-[100px] sm:blur-[130px] md:blur-[150px]
             animate-pulse delay-500"
         ></div>
+         */}
+          <div
+  className="absolute bottom-0 right-0
+    w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
+    bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500
+    opacity-30 sm:opacity-20 md:opacity-10
+    blur-[100px] sm:blur-[130px] md:blur-[150px]
+    animate-pulse delay-500"
+></div>
       </div>
 
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
@@ -90,7 +109,7 @@ export default function Home() {
 
             <motion.h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text
-            bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 drop-shadow-lg"
+            bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500 drop-shadow-lg"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -98,7 +117,7 @@ export default function Home() {
               Hello, I'm
               <br />
               <span className="text-white font bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap">
-                Adarsh Kumar
+                Adarsh K' Singh
               </span>
             </motion.h1>
             <motion.p
@@ -121,7 +140,7 @@ Technology.
             >
               <a
                 href="#projects"
-                className="px-6 py-3 rounded-full font-medium text-lg text-white bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg hover:scale-105 transition-all"
+                className="px-6 py-3 rounded-full font-medium text-lg text-white bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500 shadow-lg hover:scale-105 transition-all"
                 // style={{ marginTop: "0cm" }}
               >
                 View My Work
@@ -129,7 +148,7 @@ Technology.
               <a
                 href="/Resume.pdf"
                 download
-                className="px-6 py-3 rounded-full font-medium text-lg text-white bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 shadow-lg hover:scale-105 transition-all"
+                className="px-6 py-3 rounded-full font-medium text-lg text-white bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500 shadow-lg hover:scale-105 transition-all"
                 // style={{ marginTop: "0cm" }}
               >
                 My Resume
@@ -159,21 +178,39 @@ Technology.
           <div className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
           style={{
             right:"18px",width: "min(22vw, 410px)",height: "min(40vw, 760px)",borderRadius: "50%",
-            filter: "blur(38px)",opacity: "0.32",background: "conic-gradient(from 0deg, #ff00c8, #7928ca, #2b86c5, #00ffe7, #ff00c8)"
+            filter: "blur(38px)",opacity: "0.32",
+            // background: "conic-gradient(from 0deg, #ff00c8, #7928ca, #2b86c5, #00ffe7, #ff00c8)"
+            background: "conic-gradient(from 0deg, #3b82f6, #06b6d4, #6366f1, #3b82f6)"
           }}
+          ></div>
           
-          />
-          <motion.img src={avator} alt="Adarsh Kumar"
-          className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none"
+          {/* <motion.img src={avator} alt="Adarsh Kumar"
+          className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none rounded-full transition duration-300 hover:opacity-90 hover:scale-105"
           style={{
-            right:"-30px",width: "min(45vw, 780px)",maxHeight: "90vh"
+            right:"-1px",width: "min(70vw, 750px)",maxHeight: "50vh",
+            opacity: 0.7
           }}
           initial={{ opacity: 0, y: 40,scale: 0.98 }}
           animate={{ opacity: 1, y: 0,scale: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          />
+          /> */}
+          <motion.img 
+  src={avator} 
+  alt="Adarsh Kumar"
+  className="absolute top-1/2 -translate-y-1/2 object-cover select-none pointer-events-none rounded-full"
+  style={{
+    left: "150px",
+    width: "400px",   // fixed width
+    height: "400px",  // fixed height (same as width)
+  }}
+  initial={{ opacity: 0, y: 40, scale: 0.98 }}
+  animate={{ opacity: 1, y: 0, scale: 1 }}
+  transition={{ delay: 0.2, duration: 0.8 }}
+/>
+
+
+       </div>
         </div>
-      </div>
     </section>
   );
 }
