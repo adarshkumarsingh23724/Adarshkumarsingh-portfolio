@@ -222,6 +222,8 @@ import img5 from "../assets/img5.png";
 import img5Mobile from "../assets/img5Mobile.png";
 import demoVideo from "../assets/vid1.mp4";
 import demoVideoMobile from "../assets/demoVideoMobile.mp4";
+import vid2 from "../assets/vid2.mp4";
+import vid2Mobile from "../assets/vid2Mobile.mp4";
 
 import {
   motion,
@@ -254,6 +256,13 @@ export default function Projects() {
 
   const projects = useMemo(
     () => [
+      {
+        title: "Movie Recommender System",
+        link: "https://bookrecommendersystem-production-36cb.up.railway.app/",
+        bgColor: "#020318ff",
+        video: vid2,
+        mobileVideo: vid2Mobile,
+      },
       {
         title: "Rock vs Mine",
         link: "https://rock-vs-mine-production.up.railway.app/",
