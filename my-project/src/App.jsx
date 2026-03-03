@@ -2,6 +2,7 @@ import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import ParticlesBackground from "./components/ParticlesBackground";
 import About from "./sections/About";
+import Achievements from "./sections/Achievements";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 import Footer from "./sections/Footer";
@@ -19,6 +20,7 @@ export default function App() {
       <Skills />
       <Projects />
       <Experience />
+      <Achievements />
       <Contact />
       <Footer />
     </div>
