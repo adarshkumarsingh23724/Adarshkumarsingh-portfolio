@@ -170,7 +170,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="relative flex items-center justify-center h-60 lg:h-auto shrink-0 lg:shrink">
+        <div className="relative flex items-center justify-center h-72 lg:h-auto shrink-0 lg:shrink -mt-8 lg:mt-0">
           {/* Glow — hidden on mobile to keep it clean */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden lg:block"
             style={{
@@ -185,7 +185,7 @@ export default function Home() {
             src={avator}
             alt="Adarsh Kumar"
             className="block lg:hidden object-cover select-none rounded-full border-4 border-cyan-500/40 shadow-[0_0_40px_rgba(6,182,212,0.35)]"
-            style={{ width: "220px", height: "220px" }}
+            style={{ width: "250px", height: "250px" }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.7 }}
