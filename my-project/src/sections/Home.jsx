@@ -27,7 +27,7 @@ const glowVariants = {
 };
 
 export default function Home() {
-  const roles = useMemo(() => ["MERN STACK ENTHUSIAST", "AI/ML ENTHUSIAST","UI/UX DESIGNER"], []);
+  const roles = useMemo(() => ["MERN STACK ENTHUSIAST", "AI/ML ENTHUSIAST", "UI/UX DESIGNER"], []);
   const [index, setIndex] = React.useState(0);
   const [subIndex, setSubIndex] = React.useState(0);
   const [deleting, setDeleting] = React.useState(false);
@@ -63,14 +63,14 @@ export default function Home() {
             animate-pulse"
         ></div> */}
         <div
-  className="absolute -top-32 -left-32
+          className="absolute -top-32 -left-32
     w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
     bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500
 
     opacity-30 sm:opacity-20 md:opacity-10
     blur-[100px] sm:blur-[130px] md:blur-[150px]
     animate-pulse"
-></div>
+        ></div>
 
         {/* <div
           className="absolute bottom-0 right-0
@@ -81,19 +81,19 @@ export default function Home() {
             animate-pulse delay-500"
         ></div>
          */}
-          <div
-  className="absolute bottom-0 right-0
+        <div
+          className="absolute bottom-0 right-0
     w-[70vw] sm:w-[50vw] md:w-[40vw] h-[70vw] sm:h-[50vw] md:h-[40vw] max-w-[500px] max-h-[500px] rounded-full
     bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500
     opacity-30 sm:opacity-20 md:opacity-10
     blur-[100px] sm:blur-[130px] md:blur-[150px]
     animate-pulse delay-500"
-></div>
+        ></div>
       </div>
 
-      <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
-        <div className="flex flex-col justify-center h-full text-center lg:text-left relative">
-          <div className="w-full lg:pr-24 mx-auto max-w-[48rem]">
+      <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 flex flex-col-reverse lg:grid lg:grid-cols-2">
+        <div className="flex flex-col justify-center lg:h-full text-center lg:text-left relative pb-4 lg:pb-0">
+          <div className="w-full lg:pr-6 mx-auto max-w-[52rem]">
             <motion.div
               className="mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-wide min-h-[1.6em]"
               initial={{ opacity: 0, y: 12 }}
@@ -121,16 +121,12 @@ export default function Home() {
               </span>
             </motion.h1>
             <motion.p
-              className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 text-justify"
+              className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 w-full mx-auto lg:mx-0 leading-relaxed text-justify"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              Problem-solving enthusiast with a proven ability to 
-transform complex challenges into scalable 
-solutions. Currently pursuing engineering studies at 
-Gokaraju Rangaraju Institute of Engineering and 
-Technology.
+              B.Tech IT student at GRIET, specializing in Full-Stack (MERN) and AI development — building scalable web apps and intelligent systems with Python & modern ML frameworks. Led projects on decentralized Web3 platforms and autonomous AI agents, while serving as Vice Chair, IEEE GRIET CIS SBC and Event Lead, GDG On Campus.
             </motion.p>
             <motion.div
               className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6"
@@ -141,7 +137,7 @@ Technology.
               <a
                 href="#projects"
                 className="px-6 py-3 rounded-full font-medium text-lg text-white bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500 shadow-lg hover:scale-105 transition-all"
-                // style={{ marginTop: "0cm" }}
+              // style={{ marginTop: "0cm" }}
               >
                 View My Work
               </a>
@@ -149,7 +145,7 @@ Technology.
                 href="/Resume.pdf"
                 download
                 className="px-6 py-3 rounded-full font-medium text-lg text-white bg-gradient-to-r from-blue-400 via-cyan-500 to-indigo-500 shadow-lg hover:scale-105 transition-all"
-                // style={{ marginTop: "0cm" }}
+              // style={{ marginTop: "0cm" }}
               >
                 My Resume
               </a>
@@ -174,43 +170,39 @@ Technology.
             </div>
           </div>
         </div>
-        <div className="relative hidden lg:block">
-          <div className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-          style={{
-            right:"18px",width: "min(22vw, 410px)",height: "min(40vw, 760px)",borderRadius: "50%",
-            filter: "blur(38px)",opacity: "0.32",
-            // background: "conic-gradient(from 0deg, #ff00c8, #7928ca, #2b86c5, #00ffe7, #ff00c8)"
-            background: "conic-gradient(from 0deg, #3b82f6, #06b6d4, #6366f1, #3b82f6)"
-          }}
+        <div className="relative flex items-center justify-center h-60 lg:h-auto shrink-0 lg:shrink">
+          {/* Glow — hidden on mobile to keep it clean */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none hidden lg:block"
+            style={{
+              width: "440px", height: "440px", borderRadius: "50%",
+              filter: "blur(48px)", opacity: "0.35",
+              background: "conic-gradient(from 0deg, #3b82f6, #06b6d4, #6366f1, #3b82f6)"
+            }}
           ></div>
-          
-          {/* <motion.img src={avator} alt="Adarsh Kumar"
-          className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none rounded-full transition duration-300 hover:opacity-90 hover:scale-105"
-          style={{
-            right:"-1px",width: "min(70vw, 750px)",maxHeight: "50vh",
-            opacity: 0.7
-          }}
-          initial={{ opacity: 0, y: 40,scale: 0.98 }}
-          animate={{ opacity: 1, y: 0,scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          /> */}
-          <motion.img 
-  src={avator} 
-  alt="Adarsh Kumar"
-  className="absolute top-1/2 -translate-y-1/2 object-cover select-none pointer-events-none rounded-full"
-  style={{
-    left: "150px",
-    width: "400px",   // fixed width
-    height: "400px",  // fixed height (same as width)
-  }}
-  initial={{ opacity: 0, y: 40, scale: 0.98 }}
-  animate={{ opacity: 1, y: 0, scale: 1 }}
-  transition={{ delay: 0.2, duration: 0.8 }}
-/>
 
+          {/* Mobile avatar — centered, smaller */}
+          <motion.img
+            src={avator}
+            alt="Adarsh Kumar"
+            className="block lg:hidden object-cover select-none rounded-full border-4 border-cyan-500/40 shadow-[0_0_40px_rgba(6,182,212,0.35)]"
+            style={{ width: "220px", height: "220px" }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+          />
 
-       </div>
+          {/* Desktop avatar — large, positioned in column */}
+          <motion.img
+            src={avator}
+            alt="Adarsh Kumar"
+            className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover select-none pointer-events-none rounded-full"
+            style={{ width: "440px", height: "440px" }}
+            initial={{ opacity: 0, y: 40, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          />
         </div>
+      </div>
     </section>
   );
 }

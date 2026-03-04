@@ -27,7 +27,6 @@ export default function Overlaymenu({ isOpen, onClose }) {
           <ul className="space-y-8 text-center">
             {[
               "Home",
-              "About",
               "Skills",
               "Projects",
               "Experience",
