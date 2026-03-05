@@ -59,25 +59,27 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
         <motion.article
           className={`absolute ${
             idx % 2 === 0 ? "bottom-12" : "top-12"
-          } bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-7 w-[380px] shadow-lg`}
+          } bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-4 w-[300px] shadow-lg`}
           style={{ opacity, y, maxWidth: "90vw" }}
           transition={{ duration: 0.4, delay: idx * 0.15 }}
         >
-          <h3 className="text-2xl font-semibold mb-1">{exp.role}</h3>
-          <p className="text-lg text-gray-400 mb-2">{exp.company}</p>
+          <h3 className="text-xl font-semibold mb-1">{exp.role}</h3>
+          <p className="text-base text-gray-400 mb-2">{exp.company}</p>
           {exp.roles ? (
-            <div className="flex flex-col gap-3 mt-3 pl-4 border-l-2 border-gray-600">
+            <div className="flex flex-col gap-2.5 mt-3 pl-4 border-l-2 border-gray-600">
               {exp.roles.map((r, i) => (
                 <div key={i}>
-                  <p className="text-lg font-medium text-gray-200">{r.title}</p>
-                  <p className="text-base text-gray-500">{r.period}</p>
+                  <p className="text-base font-medium text-gray-200">
+                    {r.title}
+                  </p>
+                  <p className="text-sm text-gray-500">{r.period}</p>
                 </div>
               ))}
             </div>
           ) : (
             <>
               <p className="text-base text-gray-500 mb-2">{exp.duration}</p>
-              <p className="text-lg text-gray-300 break-words">
+              <p className="text-base text-gray-300 break-words">
                 {exp.description}
               </p>
             </>
@@ -94,25 +96,27 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
         style={{ scale, opacity }}
       />
       <motion.article
-        className="bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-6 w-[90vw] max-w-md ml-6 shadow-lg"
+        className="bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-4 w-[85vw] max-w-sm ml-6 shadow-lg"
         style={{ opacity, x }}
         transition={{ duration: 0.4, delay: idx * 0.15 }}
       >
-        <h3 className="text-2xl font-semibold break-words">{exp.role}</h3>
-        <p className="text-lg text-gray-400 mb-2 break-words">{exp.company}</p>
+        <h3 className="text-xl font-semibold break-words">{exp.role}</h3>
+        <p className="text-base text-gray-400 mb-2 break-words">
+          {exp.company}
+        </p>
         {exp.roles ? (
-          <div className="flex flex-col gap-3 mt-3 pl-4 border-l-2 border-gray-600">
+          <div className="flex flex-col gap-2.5 mt-3 pl-4 border-l-2 border-gray-600">
             {exp.roles.map((r, i) => (
               <div key={i}>
-                <p className="text-lg font-medium text-gray-200">{r.title}</p>
-                <p className="text-base text-gray-500">{r.period}</p>
+                <p className="text-base font-medium text-gray-200">{r.title}</p>
+                <p className="text-sm text-gray-500">{r.period}</p>
               </div>
             ))}
           </div>
         ) : (
           <>
-            <p className="text-base text-gray-500 mb-2">{exp.duration}</p>
-            <p className="text-lg text-gray-300 break-words">
+            <p className="text-xs text-gray-500 mb-1">{exp.duration}</p>
+            <p className="text-sm text-gray-300 break-words">
               {exp.description}
             </p>
           </>
