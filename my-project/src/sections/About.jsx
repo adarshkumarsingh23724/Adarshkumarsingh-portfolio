@@ -1,7 +1,30 @@
 import { motion } from "framer-motion";
+import React, { useMemo } from "react";
 import profile from "../assets/p.jpg"; // make sure the path is correct
 
 export default function About() {
+  const roles = useMemo(() => ["MERN STACK ENTHUSIAST", "AI/ML ENTHUSIAST", "UI/UX DESIGNER"], []);
+  const [index, setIndex] = React.useState(0);
+  const [subIndex, setSubIndex] = React.useState(0);
+  const [deleting, setDeleting] = React.useState(false);
+
+  React.useEffect(() => {
+    const current = roles[index];
+    const timeout = setTimeout(() => {
+      if (!deleting && subIndex < current.length) {
+        setSubIndex((v) => v + 1);
+      } else if (!deleting && subIndex === current.length) {
+        setTimeout(() => setDeleting(true), 1200);
+      } else if (deleting && subIndex > 0) {
+        setSubIndex((v) => v - 1);
+      } else if (deleting && subIndex === 0) {
+        setDeleting(false);
+        setIndex((p) => (p + 1) % roles.length);
+      }
+    }, deleting ? 40 : 60);
+
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, deleting, roles]);
   const glows = [
     "-top-10 -left-10 w-[360px] h-[360px] opacity-20 blur-[120px]",
     "bottom-10 right-10 w-[420px] h-[420px] opacity-15 blur-[140px] delay-300",
@@ -53,7 +76,19 @@ export default function About() {
             >
               Adarsh K' Singh
             </h2>
-            <p className="mt-2 text-lg sm:text-xl text-white/90 font-semibold">MERN STACK ENTHUSIAST</p>
+            <motion.div
+              className="mt-2 text-lg sm:text-xl text-white/90 font-semibold min-h-[1.6em]"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              {roles[index].substring(0, subIndex)}
+              <span
+                className="inline-block w-[2px] ml-1 bg-white animate-pulse align-middle"
+                style={{ height: "1em" }}
+              ></span>
+            </motion.div>
             <p className="mt-4 text-gray-300 leading-relaxed text-base sm:text-lg max-w-2xl md:max-w-3xl text-justify">
               I am Adarsh Kumar Singh, a B.Tech Information Technology student at Gokaraju Rangaraju Institute of Engineering and Technology with a strong interest in Full-Stack Development and Artificial Intelligence. I build scalable web applications using the MERN stack and develop intelligent systems with Python and modern AI frameworks. I have worked on impactful projects including a decentralized carbon credit marketplace and autonomous AI research agents. As Vice Chair of IEEE GRIET CIS SBC and Event Lead at GDG On Campus, I actively contribute to the tech community. I am passionate about solving real-world problems through innovation and technology.
 
