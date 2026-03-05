@@ -5,6 +5,17 @@ export default function Overlaymenu({ isOpen, onClose }) {
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 1024;
   const origin = isMobile ? "95% 8%" : "50% 8%";
 
+  const navItems = [
+    { label: "Home", id: "home" },
+    { label: "Skills", id: "skills" },
+    { label: "Projects", id: "projects" },
+    { label: "Roles & Responsibility", id: "experience" },
+    { label: "Education", id: "education" },
+    { label: "Languages", id: "languages" },
+    { label: "Achievements", id: "achievements" },
+    { label: "Contact", id: "contact" },
+  ];
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -25,26 +36,19 @@ export default function Overlaymenu({ isOpen, onClose }) {
           </button>
 
           <ul className="space-y-8 text-center">
-            {[
-              "Home",
-              "Skills",
-              "Projects",
-              "Experience",
-              "Achievements",
-              "Contact",
-            ].map((item, index) => (
+            {navItems.map(({ label, id }, index) => (
               <motion.li
-                key={item}
+                key={id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 <a
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${id}`}
                   onClick={onClose}
                   className="text-4xl text-white font-semibold hover:text-pink-400 transition-colors duration-300"
                 >
-                  {item}
+                  {label}
                 </a>
               </motion.li>
             ))}

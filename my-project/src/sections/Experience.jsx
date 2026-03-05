@@ -3,22 +3,33 @@ import { useRef, useEffect, useState, useMemo } from "react";
 
 const experiences = [
   {
-    role: "Treasurer",
-    company: "IEEE GRIET CIS SBC",
-    duration: "Feb 2025-Present",
-    description: "As Treasurer, I manage budgets, records, and financial transparency to ensure resources are used responsibly.",
+    role: "IEEE GRIET CIS SBC",
+    company: "Feb 2025 - Present",
+    duration: "",
+    description:
+      "Promoted from Treasurer to Vice Chair — progressing in chapter leadership and responsibilities.",
+    roles: [
+      { title: "Vice Chair", period: "Feb 2026 - Present" },
+      { title: "Treasurer", period: "Feb 2025 - Feb 2026" },
+    ],
   },
   {
-    role: "Event Management Lead",
-    company: "GDG on Campus,GRIET",
-    duration: "Oct 2024-Present",
-    description: "Experienced in organizing and coordinating events with a focus on planning and smooth execution.ensuring every detail contributes to a successful outcome.",
+    role: "Google Developer Groups on Campus, GRIET",
+    company: "Sep 2025 - Present · 2 yrs 4 mos",
+    duration: "",
+    description: "",
+    roles: [
+      { title: "Event Management Lead", period: "Sep 2025 - Present · 7 mos" },
+      { title: "Event Management", period: "Oct 2024 - Sep 2025 · 1 yr" },
+      { title: "Member", period: "Dec 2023 - Sep 2024 · 10 mos" },
+    ],
   },
   {
     role: "Technical Team Member",
     company: "E-Cell GRIET",
-    duration: "Nov 2024-Sep 2025",
-    description: "As a Technical Team Member, I contribute to building and maintaining innovative solutions.I collaborate with peers to ensure smooth execution of projects.",
+    duration: "Nov 2024 - Sep 2025",
+    description:
+      "As a Technical Team Member, I contributed to building and maintaining innovative solutions and collaborated with peers to ensure smooth execution of projects.",
   },
 ];
 
@@ -28,37 +39,49 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
   const y = useTransform(
     scrollYProgress,
     [start, end],
-    [idx % 2 === 0 ? 30 : -30, 0]
+    [idx % 2 === 0 ? 30 : -30, 0],
   );
   const x = useTransform(scrollYProgress, [start, end], [-24, 0]);
 
   if (layout === "desktop") {
-    return ( // ✅ lowercase return
+    return (
       <div className="relative flex flex-1 justify-center items-center min-w-0">
-        <motion.div // ✅ corrected
+        <motion.div
           className="z-10 w-7 h-7 rounded-full bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.1)]"
           style={{ scale, opacity }}
         />
-        <motion.div // ✅ corrected
+        <motion.div
           className={`absolute ${
             idx % 2 === 0 ? "-top-8" : "-bottom-8"
           } w-[3px] bg-white/40`}
           style={{ height: 40, opacity }}
         />
-        <motion.article // ✅ corrected
+        <motion.article
           className={`absolute ${
             idx % 2 === 0 ? "bottom-12" : "top-12"
-          } bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-7 w-[320px] shadow-lg`}
+          } bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-7 w-[380px] shadow-lg`}
           style={{ opacity, y, maxWidth: "90vw" }}
           transition={{ duration: 0.4, delay: idx * 0.15 }}
         >
-          <h3 className="text-xl font-semibold">{exp.role}</h3>
-          <p className="text-md text-gray-400 mb-3">
-            {exp.company} | {exp.duration}
-          </p>
-          <p className="text-md text-gray-300 break-words"> {/* ✅ fixed class */}
-            {exp.description}
-          </p>
+          <h3 className="text-2xl font-semibold mb-1">{exp.role}</h3>
+          <p className="text-lg text-gray-400 mb-2">{exp.company}</p>
+          {exp.roles ? (
+            <div className="flex flex-col gap-3 mt-3 pl-4 border-l-2 border-gray-600">
+              {exp.roles.map((r, i) => (
+                <div key={i}>
+                  <p className="text-lg font-medium text-gray-200">{r.title}</p>
+                  <p className="text-base text-gray-500">{r.period}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <>
+              <p className="text-base text-gray-500 mb-2">{exp.duration}</p>
+              <p className="text-lg text-gray-300 break-words">
+                {exp.description}
+              </p>
+            </>
+          )}
         </motion.article>
       </div>
     );
@@ -66,20 +89,34 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
 
   return (
     <div className="relative flex items-start">
-      <motion.div // ✅ corrected
+      <motion.div
         className="absolute left-[14px] top-3 z-10 w-7 h-7 rounded-full bg-white shadow-[0_0_0_8px_rgba(255,255,255,0.1)]"
         style={{ scale, opacity }}
       />
-      <motion.article // ✅ corrected
-        className="bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-5 w-[90vw] max-w-sm ml-6 shadow-lg"
+      <motion.article
+        className="bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl p-6 w-[90vw] max-w-md ml-6 shadow-lg"
         style={{ opacity, x }}
         transition={{ duration: 0.4, delay: idx * 0.15 }}
       >
-        <h3 className="text-lg font-semibold break-words">{exp.role}</h3>
-        <p className="text-sm text-gray-400 mb-2 break-words">
-          {exp.company} | {exp.duration}
-        </p>
-        <p className="text-sm text-gray-300 break-words">{exp.description}</p>
+        <h3 className="text-2xl font-semibold break-words">{exp.role}</h3>
+        <p className="text-lg text-gray-400 mb-2 break-words">{exp.company}</p>
+        {exp.roles ? (
+          <div className="flex flex-col gap-3 mt-3 pl-4 border-l-2 border-gray-600">
+            {exp.roles.map((r, i) => (
+              <div key={i}>
+                <p className="text-lg font-medium text-gray-200">{r.title}</p>
+                <p className="text-base text-gray-500">{r.period}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <>
+            <p className="text-base text-gray-500 mb-2">{exp.duration}</p>
+            <p className="text-lg text-gray-300 break-words">
+              {exp.description}
+            </p>
+          </>
+        )}
       </motion.article>
     </div>
   );
@@ -107,7 +144,7 @@ export default function Experience() {
 
   const thresholds = useMemo(
     () => experiences.map((_, i) => (i + 1) / experiences.length), // ✅ fixed syntax
-    [experiences]
+    [experiences],
   );
 
   const lineSize = useTransform(scrollYProgress, (v) => `${v * 100}%`);
@@ -121,61 +158,58 @@ export default function Experience() {
       >
         <div className="sticky top-0 h-screen flex flex-col">
           <h2 className="text-4xl sm:text-5xl font-semibold mt-5 text-center">
-            Experience
+            Roles &amp; Responsibility
           </h2>
           <div className="flex flex-1 items-center justify-center px-6 pb-10">
             {!isMobile && (
-             <div className="relative w-full max-w-7xl">
-              <div className="relative h-[6px] bg-white/15 rounded">
-              <motion.div className="absolute left-0 top-0 h-[6px] bg-white rounded origin-left"
-              style={{width : lineSize}}
-              ></motion.div>
+              <div className="relative w-full px-8">
+                <div className="relative h-[8px] bg-white/15 rounded">
+                  <motion.div
+                    className="absolute left-0 top-0 h-[8px] bg-white rounded origin-left"
+                    style={{ width: lineSize }}
+                  ></motion.div>
+                </div>
+                <div className="relative flex justify-between mt-0">
+                  {experiences.map((exp, idx) => (
+                    <ExperienceItem
+                      key={idx}
+                      exp={exp}
+                      idx={idx}
+                      start={idx === 0 ? 0 : thresholds[idx - 1]}
+                      end={thresholds[idx]}
+                      scrollYProgress={scrollYProgress}
+                      layout="desktop"
+                    />
+                  ))}
+                </div>
               </div>
-              <div className="relative flex justify-between mt-0">
-                {experiences.map((exp, idx) => (
-              <ExperienceItem
-                key={idx}
-                exp={exp}
-                idx={idx}
-                start={idx === 0? 0 : thresholds[idx-1]}
-                end={thresholds[idx]}
-                scrollYProgress={scrollYProgress}
-                layout="desktop"
-              />
-                ))}
-
-
-              </div>
-        </div>
             )}
             {isMobile && (
               <div className="relative w-full max-w-md">
                 <div className="absolute left-0 top-0 bottom-0 w-[6px] bg-white/15 rounded">
-                <motion.div className="absolute top-0 left-0 w-[6px] bg-white rounded origin-top"
-                style={{height : lineSize}}
-                >
-
-
-                </motion.div>
+                  <motion.div
+                    className="absolute top-0 left-0 w-[6px] bg-white rounded origin-top"
+                    style={{ height: lineSize }}
+                  ></motion.div>
                 </div>
                 <div className="relative flex flex-col gap-10 ml-10 mt-6 pb-28">
                   {experiences.map((exp, idx) => (
-              <ExperienceItem
-                key={idx}
-                exp={exp}
-                idx={idx}
-                start={idx === 0? 0 : thresholds[idx-1]}
-                end={thresholds[idx]}
-                scrollYProgress={scrollYProgress}
-                layout="Mobile"
-              />
-                ))}
-                  </div>
-                  </div>
+                    <ExperienceItem
+                      key={idx}
+                      exp={exp}
+                      idx={idx}
+                      start={idx === 0 ? 0 : thresholds[idx - 1]}
+                      end={thresholds[idx]}
+                      scrollYProgress={scrollYProgress}
+                      layout="Mobile"
+                    />
+                  ))}
+                </div>
+              </div>
             )}
-      </div>
-      </div>
+          </div>
         </div>
+      </div>
     </section>
   );
 }
