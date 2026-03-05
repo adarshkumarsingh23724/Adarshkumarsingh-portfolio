@@ -1,0 +1,93 @@
+﻿commit 984fd82b7ca928e7ca5bbe85a84ccb76a2a6aa4d
+Author: adarshkumarsingh23724 <adarshkumar23724@gmail.com>
+Date:   Wed Mar 4 14:20:14 2026 +0530
+
+    remove about section
+
+diff --git a/my-project/src/App.jsx b/my-project/src/App.jsx
+index f551031..c57de3a 100644
+--- a/my-project/src/App.jsx
++++ b/my-project/src/App.jsx
+@@ -1,7 +1,6 @@
+ import CustomCursor from "./components/CustomCursor";
+ import Navbar from "./components/Navbar";
+ import ParticlesBackground from "./components/ParticlesBackground";
+-import About from "./sections/About";
+ import Achievements from "./sections/Achievements";
+ import Contact from "./sections/Contact";
+ import Experience from "./sections/Experience";
+@@ -16,7 +15,6 @@ export default function App() {
+       <CustomCursor />
+       <Navbar />
+       <Home />
+-      <About />
+       <Skills />
+       <Projects />
+       <Experience />
+
+commit 3206deeb6b935e837cbdba977306932740fbc0a0
+Author: adarshkumarsingh23724 <adarshkumar23724@gmail.com>
+Date:   Tue Mar 3 22:28:55 2026 +0530
+
+    achievements
+
+diff --git a/my-project/src/App.jsx b/my-project/src/App.jsx
+index f9bb8d6..f551031 100644
+--- a/my-project/src/App.jsx
++++ b/my-project/src/App.jsx
+@@ -2,6 +2,7 @@ import CustomCursor from "./components/CustomCursor";
+ import Navbar from "./components/Navbar";
+ import ParticlesBackground from "./components/ParticlesBackground";
+ import About from "./sections/About";
++import Achievements from "./sections/Achievements";
+ import Contact from "./sections/Contact";
+ import Experience from "./sections/Experience";
+ import Footer from "./sections/Footer";
+@@ -19,6 +20,7 @@ export default function App() {
+       <Skills />
+       <Projects />
+       <Experience />
++      <Achievements />
+       <Contact />
+       <Footer />
+     </div>
+
+commit e2ad859f0fa740046f1d417ff5ef19ad83b841db
+Author: adarshkumarsingh23724 <adarshkumar23724@gmail.com>
+Date:   Tue Dec 23 02:44:46 2025 +0530
+
+    Initial commit
+
+diff --git a/my-project/src/App.jsx b/my-project/src/App.jsx
+new file mode 100644
+index 0000000..f9bb8d6
+--- /dev/null
++++ b/my-project/src/App.jsx
+@@ -0,0 +1,26 @@
++import CustomCursor from "./components/CustomCursor";
++import Navbar from "./components/Navbar";
++import ParticlesBackground from "./components/ParticlesBackground";
++import About from "./sections/About";
++import Contact from "./sections/Contact";
++import Experience from "./sections/Experience";
++import Footer from "./sections/Footer";
++import Home from "./sections/Home";
++import Projects from "./sections/Projects";
++import Skills from "./sections/Skills";
++
++export default function App() {
++  return (
++    <div className="relative gradient text-white">
++      <CustomCursor />
++      <Navbar />
++      <Home />
++      <About />
++      <Skills />
++      <Projects />
++      <Experience />
++      <Contact />
++      <Footer />
++    </div>
++  )
++}
+\ No newline at end of file

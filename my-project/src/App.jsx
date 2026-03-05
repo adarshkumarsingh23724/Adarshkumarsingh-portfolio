@@ -1,6 +1,7 @@
 import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import ParticlesBackground from "./components/ParticlesBackground";
+import About from "./sections/About";
 import Achievements from "./sections/Achievements";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
@@ -15,6 +16,7 @@ export default function App() {
       <CustomCursor />
       <Navbar />
       <Home />
+      <About />
       <Skills />
       <Projects />
       <Experience />

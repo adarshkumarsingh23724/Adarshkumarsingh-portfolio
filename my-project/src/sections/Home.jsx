@@ -91,7 +91,7 @@ export default function Home() {
         ></div>
       </div>
 
-      <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 flex flex-col-reverse lg:grid lg:grid-cols-2">
+      <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 flex flex-col-reverse justify-center pb-24 lg:pb-0 lg:grid lg:grid-cols-2">
         <div className="flex flex-col justify-center lg:h-full text-center lg:text-left relative pb-4 lg:pb-0">
           <div className="w-full lg:pr-6 mx-auto max-w-[52rem]">
             <motion.div
