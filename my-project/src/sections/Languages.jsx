@@ -34,15 +34,13 @@ function LanguageItem({ lang, idx, start, end, scrollYProgress, layout }) {
           style={{ scale, opacity }}
         />
         <motion.div
-          className={`absolute ${
-            idx % 2 === 0 ? "-top-8" : "-bottom-8"
-          } w-[3px] bg-cyan-400/40`}
+          className={`absolute ${idx % 2 === 0 ? "-top-8" : "-bottom-8"
+            } w-[3px] bg-cyan-400/40`}
           style={{ height: 40, opacity }}
         />
         <motion.article
-          className={`absolute ${
-            idx % 2 === 0 ? "bottom-12" : "top-12"
-          } bg-gray-900/80 backdrop-blur border border-cyan-700/50 rounded-xl p-7 w-[320px] shadow-lg`}
+          className={`absolute ${idx % 2 === 0 ? "bottom-12" : "top-12"
+            } bg-gray-900/80 backdrop-blur border border-cyan-700/50 rounded-xl p-7 w-[320px] shadow-lg`}
           style={{ opacity, y, maxWidth: "90vw" }}
           transition={{ duration: 0.4, delay: idx * 0.15 }}
         >
@@ -106,6 +104,10 @@ export default function Languages() {
 
   return (
     <section id="languages" className="relative bg-black text-white">
+      {/* Cinematic Hotstar Top Glow */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-[-5%] left-1/2 -translate-x-1/2 w-[80%] max-w-[800px] h-[500px] bg-gradient-to-b from-fuchsia-900/30 via-purple-900/15 to-transparent blur-[120px] rounded-full opacity-80"></div>
+      </div>
       <div
         ref={sceneRef}
         style={{ height: `${SCENE_HEIGHT_VH}vh`, minHeight: "120vh" }}

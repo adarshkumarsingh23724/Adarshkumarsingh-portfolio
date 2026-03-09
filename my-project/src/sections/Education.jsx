@@ -31,9 +31,10 @@ export default function Education() {
             id="education"
             className="relative bg-black text-white py-24 px-6 md:px-20 overflow-hidden"
         >
-            {/* Glow orbs matching other sections */}
-            <div className="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-blue-700/10 blur-3xl opacity-50" />
-            <div className="pointer-events-none absolute top-10 right-10 w-[400px] h-[400px] rounded-full bg-cyan-700/10 blur-3xl opacity-50" />
+            {/* Cinematic Hotstar Top Glow */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                <div className="absolute top-[-5%] left-1/2 -translate-x-1/2 w-[80%] max-w-[800px] h-[500px] bg-gradient-to-b from-pink-900/30 via-fuchsia-900/15 to-transparent blur-[120px] rounded-full opacity-80"></div>
+            </div>
 
             {/* Heading */}
             <div className="text-center mb-16 relative z-10">

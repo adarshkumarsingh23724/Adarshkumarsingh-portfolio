@@ -4,6 +4,7 @@ import img1 from "../assets/img1.png";
 import img2 from "../assets/img2.png";
 import img3 from "../assets/img3.webp";
 import vid4 from "../assets/vid4.mp4";
+import img5 from "../assets/img5.png";
 
 export default function Projects() {
   const projects = useMemo(
@@ -22,6 +23,21 @@ export default function Projects() {
           { value: "NDVI", label: "Satellite Data" },
         ],
         gradient: "from-green-900 to-green-800",
+      },
+      {
+        title: "Smart Research Assistant using RAG",
+        link: "https://github.com/adarshkumarsingh23724/Smart-Research-Assistant-using-RAG.git",
+        image: img5,
+        scale: "Agentic RAG",
+        tag: "RAG",
+        description:
+          "An AI study companion directly linking with Google Classroom. It securely fetches Drive materials into a local ChromaDB, enabling users to query a fully localized DeepSeek LLM. Provides zero-data-leakage answers with exact document citations using HuggingFace embeddings and LangChain.",
+        metrics: [
+          { value: "Local LLM", label: "DeepSeek R1" },
+          { value: "RAG", label: "ChromaDB" },
+          { value: "GenAI", label: "Live In-Memory" },
+        ],
+        gradient: "from-fuchsia-950 to-fuchsia-800",
       },
       {
         title: "Deep Research Agent",
@@ -92,10 +108,11 @@ export default function Projects() {
       id="projects"
       className="relative min-h-screen py-24 sm:py-32 overflow-hidden bg-black text-white"
     >
-      {/* Background Glow Effects to match About section */}
+      {/* Cinematic Hotstar Top Glow */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <div className="absolute top-[-5%] left-1/2 -translate-x-1/2 w-[80%] max-w-[800px] h-[500px] bg-gradient-to-b from-fuchsia-900/40 via-purple-900/20 to-transparent blur-[120px] rounded-full opacity-70"></div>
+      </div>
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[150px]"></div>
 
         {/* Floating Particles */}
         {particles.map((p) => (
