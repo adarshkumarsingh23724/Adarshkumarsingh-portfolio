@@ -64,7 +64,7 @@ export default function About() {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 200, damping: 18 }}
           >
-            <img src={profile} alt="profile" className="absolute inset-0 object-cover" />
+            <img src={profile} alt="profile" className="absolute inset-0 w-full h-full object-cover object-top" />
           </motion.div>
 
           {/* FIX: "flex-1-flex-col" is invalid.
