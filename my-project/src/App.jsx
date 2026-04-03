@@ -1,4 +1,6 @@
+import { useState } from "react";
 import CustomCursor from "./components/CustomCursor";
+import SplashScreen from "./components/SplashScreen";
 import Navbar from "./components/Navbar";
 import ParticlesBackground from "./components/ParticlesBackground";
 import About from "./sections/About";
@@ -13,20 +15,25 @@ import Projects from "./sections/Projects";
 import Skills from "./sections/Skills";
 
 export default function App() {
+  const [splashDone, setSplashDone] = useState(false);
+
   return (
-    <div className="relative gradient text-white">
-      <CustomCursor />
-      <Navbar />
-      <Home />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Education />
-      <Languages />
-      <Achievements />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      {!splashDone && <SplashScreen onDone={() => setSplashDone(true)} />}
+      <div className="relative gradient text-white">
+        <CustomCursor />
+        <Navbar />
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Education />
+        <Languages />
+        <Achievements />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   );
 }
