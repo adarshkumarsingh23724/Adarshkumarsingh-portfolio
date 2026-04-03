@@ -10,7 +10,7 @@ const greetings = [
     { word: "你好",     lang: "Chinese"   },
 ];
 
-const WORD_DURATION = 700; // ms each word is fully visible
+const WORD_DURATION = 1100; // ms per word — tuned for ~8s total splash
 
 export default function SplashScreen({ onDone }) {
     const [index, setIndex]     = useState(0);
@@ -22,14 +22,14 @@ export default function SplashScreen({ onDone }) {
             return () => clearTimeout(t);
         } else {
             // last word — pause then exit
-            const t = setTimeout(() => setLeaving(true), WORD_DURATION + 400);
+            const t = setTimeout(() => setLeaving(true), WORD_DURATION + 300);
             return () => clearTimeout(t);
         }
     }, [index]);
 
     useEffect(() => {
         if (leaving) {
-            const t = setTimeout(onDone, 1000);
+            const t = setTimeout(onDone, 600);
             return () => clearTimeout(t);
         }
     }, [leaving, onDone]);
@@ -65,14 +65,17 @@ export default function SplashScreen({ onDone }) {
                     }} />
 
                     {/* Word */}
-                    <div style={{ position: "relative", height: 140, display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
+                    <div style={{ position: "relative", height: 160, display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
                         <AnimatePresence mode="wait">
                             <motion.p
                                 key={index}
-                                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                                animate={{ opacity: 1, y: 0,  scale: 1    }}
-                                exit={{    opacity: 0, y: -30, scale: 0.95 }}
-                                transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+                                initial={{ opacity: 0, scale: 1.08, filter: "blur(12px)" }}
+                                animate={{ opacity: 1, scale: 1,    filter: "blur(0px)"  }}
+                                exit={{    opacity: 0, scale: 0.92,  filter: "blur(12px)" }}
+                                transition={{
+                                    duration: 0.4,
+                                    ease: [0.16, 1, 0.3, 1],
+                                }}
                                 style={{
                                     position: "absolute",
                                     margin: 0,
@@ -99,14 +102,13 @@ export default function SplashScreen({ onDone }) {
                         <AnimatePresence mode="wait">
                             <motion.span
                                 key={`lang-${index}`}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{    opacity: 0 }}
-                                transition={{ duration: 0.35 }}
+                                initial={{ opacity: 0, letterSpacing: "0.35em" }}
+                                animate={{ opacity: 1, letterSpacing: "0.22em" }}
+                                exit={{    opacity: 0, letterSpacing: "0.10em" }}
+                                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                                 style={{
                                     position: "absolute",
                                     fontSize: "0.72rem",
-                                    letterSpacing: "0.22em",
                                     textTransform: "uppercase",
                                     color: "#6b7280",
                                     userSelect: "none",
@@ -134,12 +136,12 @@ export default function SplashScreen({ onDone }) {
                     </div>
                 </motion.div>
             ) : (
-                /* Curtain slides up */
+                /* Circle collapse — same as overlay menu closing */
                 <motion.div
                     key="curtain"
-                    initial={{ y: "0%" }}
-                    animate={{ y: "-100%" }}
-                    transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+                    initial={{ clipPath: "circle(150% at 50% 50%)" }}
+                    animate={{ clipPath: "circle(0% at 50% 50%)"   }}
+                    transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
                     style={{
                         position: "fixed",
                         inset: 0,
